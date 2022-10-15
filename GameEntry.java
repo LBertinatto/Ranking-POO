@@ -10,8 +10,16 @@ public class GameEntry {
     private int score;
 
     public GameEntry(String n, int s)   {
-        name=n;
-        score=s;
+        if (n==null || n.isBlank())   {
+            IllegalArgumentException e = new IllegalArgumentException("Nome invalido!");
+            throw e;
+        }
+        else name = n;
+        if (s<0)    {
+            IllegalArgumentException e = new IllegalArgumentException("Valor invalido!");
+            throw e;
+        }
+        else score = s;
     }
 
     public String getName()     {
