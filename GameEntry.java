@@ -32,7 +32,9 @@ public class GameEntry {
     
     /** Retorna uma string representando o objeto *  
      * Formato: (<name>, <score>)* 
-     * Exemplo: (John, 10)*/
+     * Exemplo: (John, 10)
+     * FEITO!!!!
+     */ 
     public String toString()    {
         return "("+getName()+","+
                 " "+getScore()+")";
