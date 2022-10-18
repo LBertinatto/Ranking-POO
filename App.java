@@ -25,6 +25,7 @@ public class App    {
                 //implementar exceção de nome null e score negativo
                 try {
                     GameEntry entry = new GameEntry(nome, pont);
+                    ScoresImplements.add(entry);
                 } 
                 catch (IllegalArgumentException e) {
                     //TODO
@@ -32,8 +33,7 @@ public class App    {
                 }
                     break;
                 case 2:
-                    //imprimir top10 scores
-
+                    ScoresImplements.imprime();
                     break;
                 case 3:
                     System.out.println("Finalizando Programa....");

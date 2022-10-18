@@ -17,7 +17,9 @@ public interface Scores {
 
     /** Adiciona um novo score se ele for grande o suficiente* 
      * Retorna verdadeiro se foi adicionado,falso caso contrário*/
-    boolean add(GameEntry e);
+    static boolean add(GameEntry e){
+      return false;
+    }
 
     /** Retorna o score na posição i */
     GameEntry get(int i);

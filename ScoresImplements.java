@@ -2,7 +2,8 @@
 import java.util.TreeSet;
 
 public class ScoresImplements implements Scores{
-    private TreeSet<GameEntry> scores;
+    private static TreeSet<GameEntry> scores;
+    private static int capacity = 10;
 
     public ScoresImplements(){
         scores = new TreeSet<>();
@@ -12,9 +13,8 @@ public class ScoresImplements implements Scores{
      * Adiciona um novo score se ele for grande o suficiente
      * Retorna verdadeiro se foi adicionado,falso caso contrário
      */
-    @Override
-    public boolean add(GameEntry e) {
-        if(scores.size() != getCapacity()){
+    public static boolean add(GameEntry e) {
+        if(scores.size() != capacity){
             scores.add(e);
             return true;
         }else{
@@ -25,6 +25,9 @@ public class ScoresImplements implements Scores{
             }
         }
         return false;
+    }
+    public static void addGameEntry(GameEntry e){
+        add(e);
     }
 
     /** Retorna o score na posição i */
@@ -38,7 +41,7 @@ public class ScoresImplements implements Scores{
 
     @Override
     public int getCapacity() {
-        return 10;
+        return capacity;
     }
 
     @Override
@@ -46,4 +49,13 @@ public class ScoresImplements implements Scores{
         return scores.size();
     }
 
+    public static void imprime(){
+        for (GameEntry gameEntry : scores) {
+            System.out.println(String.format("Jogador: %s%nPontuação: %d",gameEntry.getName(), gameEntry.getScore()));
+        }
+    }
+    
+    public static TreeSet<GameEntry> Scores(){
+        return scores;
+    }
 }
