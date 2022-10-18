@@ -7,9 +7,9 @@ public class App    {
         Scanner sc = new Scanner(System.in);
 
         while (true)    {
-            System.out.println("----------");
+            System.out.println("\n----------");
             System.out.println("-- MENU --");
-            System.out.println("----------");
+            System.out.println("----------\n");
             System.out.println("1. Registrar Score.");
             System.out.println("2. Lista top10 Scores.");
             System.out.println("3. Fechar programa.");
@@ -18,7 +18,7 @@ public class App    {
 
             switch (op) {
                 case 1:
-                    System.out.println("Informe seu nome e a sua pontuacao.");
+                    System.out.println("\nInforme seu nome e a sua pontuacao.");
                     String nome = sc.next();
                     int pont = sc.nextInt();
 
