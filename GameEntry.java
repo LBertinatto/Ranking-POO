@@ -7,7 +7,7 @@
 
 public class GameEntry {
     private String name;
-    private int score;
+    private Integer score;
 
     public GameEntry(String n, int s)   {
         if (n==null || n.isBlank())   {

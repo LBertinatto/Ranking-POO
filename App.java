@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class App    {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        ScoresImplements si = new ScoresImplements();
         while (true)    {
             System.out.println("\n----------");
             System.out.println("-- MENU --");
@@ -25,7 +25,7 @@ public class App    {
                 //implementar exceção de nome null e score negativo
                 try {
                     GameEntry entry = new GameEntry(nome, pont);
-                    ScoresImplements.add(entry);
+                    si.add(entry);
                 } 
                 catch (IllegalArgumentException e) {
                     //TODO
@@ -33,15 +33,14 @@ public class App    {
                 }
                     break;
                 case 2:
-                    ScoresImplements.imprime();
+                    si.imprime();
                     break;
                 case 3:
+                    sc.close(); 
                     System.out.println("Finalizando Programa....");
                     System.exit(0);
                     break;
             }
-
         }
-
     }
 }
