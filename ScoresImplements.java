@@ -52,22 +52,24 @@ public class ScoresImplements implements Scores{
     }
 
     public void imprime(){
-
-        for (GameEntry gameEntry : scores) {
-            System.out.printf("Jogador: %s%nPontuação: %d%n",gameEntry.getName(), gameEntry.getScore());
-            System.out.println("\n");
-        }
+        System.out.println("      Jogador          ,      Score    ");
+        System.out.println("---------------------------------------------");
     }
 
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append('[');
+        //s.append('[');
         for (int i=0; i<scores.size(); i++) {
-            s.append("(" + scores.get(i).getName() + ", " + scores.get(i).getScore() + ")");
-            if (i!= scores.size()-1) s.append(", ");
+            System.out.printf("[%15s",scores.get(i).getName());
+            System.out.print("       ,       ");
+            System.out.printf("%14d]",scores.get(i).getScore());
+            System.out.println("\n");
+            //s.append(scores.get(i).getName() + "   -   " + scores.get(i).getScore() + "\n");
+            //if (i!= scores.size()-1) s.append(", ");
         }
-        s.append(']');
+        //s.append(']');
         return s.toString();
+   
     }
 }
