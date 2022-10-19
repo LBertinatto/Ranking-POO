@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class ScoresImplements implements Scores{
     private static ArrayList<GameEntry> scores;
-    private static int capacity = 10;
+    private static final int capacity = 10;
 
     public ScoresImplements(){
         scores = new ArrayList<>();
@@ -16,16 +16,19 @@ public class ScoresImplements implements Scores{
      * Retorna verdadeiro se foi adicionado,falso caso contrário
      */
     public boolean add(GameEntry e) {
-        sortScores();
-
         if(scores.size() != capacity){
             scores.add(e);
+            Collections.sort(scores);
             return true;
-        }else{
-            if(e.getScore() > scores.get(scores.size()).getScore()){
-                scores.remove(scores.size());
-                scores.add(e);
-                return true;
+
+        }else {
+            for (GameEntry g : scores) {
+                if (e.getScore()>g.getScore()) {
+                    scores.add(e);
+                    scores.remove(capacity-1);
+                    Collections.sort(scores);
+                    return true;
+                }
             }
         }
         return false;
@@ -34,10 +37,8 @@ public class ScoresImplements implements Scores{
     /** Retorna o score na posição i */
     @Override
     public GameEntry get(int i) {
-        Object[] aux = new Object[scores.size()];
-        aux = scores.toArray();
+        return scores.get(i);
 
-        return (GameEntry) aux[i] ;
     }
 
     @Override
@@ -51,25 +52,22 @@ public class ScoresImplements implements Scores{
     }
 
     public void imprime(){
-        sortScores();
-        
+
         for (GameEntry gameEntry : scores) {
-            System.out.println(String.format("Jogador: %s%nPontuação: %d",gameEntry.getName(), gameEntry.getScore()));
+            System.out.printf("Jogador: %s%nPontuação: %d%n",gameEntry.getName(), gameEntry.getScore());
             System.out.println("\n");
         }
     }
 
-    public class SortScoresImplements implements Comparator<GameEntry> {
-
-        @Override
-        public int compare(GameEntry a, GameEntry b) {
-            if ((a.getScore() > b.getScore()))return 1;
-            if ((a.getScore() < b.getScore()))return -1;
-            return 0;  
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append('[');
+        for (int i=0; i<scores.size(); i++) {
+            s.append("(" + scores.get(i).getName() + ", " + scores.get(i).getScore() + ")");
+            if (i!= scores.size()-1) s.append(", ");
         }
+        s.append(']');
+        return s.toString();
     }
-
-    public void sortScores() {
-        Collections.sort(scores, new SortScoresImplements());
-    }   
- }
+}

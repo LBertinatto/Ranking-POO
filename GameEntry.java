@@ -5,7 +5,9 @@
  * em branco) e score(valores negativos).
  */
 
-public class GameEntry {
+import java.util.Comparator;
+
+public class GameEntry implements Comparable<GameEntry> {
     private String name;
     private Integer score;
 
@@ -40,4 +42,10 @@ public class GameEntry {
                 " "+getScore()+")";
     }
 
+    @Override
+    public int compareTo(GameEntry o) {
+        if (score>o.getScore()) return -1;
+        if (score<o.getScore()) return 1;
+        return 0;
+    }
 }
