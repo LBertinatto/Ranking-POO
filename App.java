@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 // testar a implementação de suas classes.
 
-public class App    {
+public class App  {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ScoresImplements si = new ScoresImplements();
@@ -37,6 +37,7 @@ public class App    {
                         }
                         break;
                     case 2:
+                        si.imprime();
                         System.out.println(si.toString());
                         break;
                     case 3:
