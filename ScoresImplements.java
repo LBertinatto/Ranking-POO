@@ -51,6 +51,10 @@ public class ScoresImplements implements Scores{
         return scores.size();
     }
 
+    public static ArrayList<GameEntry> getScores() {
+        return scores;
+    }
+    
     public void imprime(){
         System.out.println("      Jogador          ,      Score    ");
         System.out.println("---------------------------------------------");
