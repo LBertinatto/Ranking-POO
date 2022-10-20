@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -42,9 +43,8 @@ public class App    {
                         System.out.println(si.toString());
                         break;
                     case 3:
-                        ss.lerDados();
                         ss.escreverDados();
-                        System.out.println("Arquivo escrito!");
+
                         break;
                     case 4:
                         sc.close();

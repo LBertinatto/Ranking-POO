@@ -1,4 +1,5 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +12,8 @@ public class ScoresSerializacao {
     ArrayList <String> dados = new ArrayList<>();
     ArrayList <GameEntry> scores = si.getScores();
     
-    public void lerDados()  {
+    private void lerDados()  {
+        dados = new ArrayList<>();
         for (int i = 0; i < scores.size(); i++) {
             dados.add(scores.get(i).getName()+","+scores.get(i).getScore());
 
@@ -19,15 +21,20 @@ public class ScoresSerializacao {
     }
 
     public void escreverDados() {
-        String path = "ScoreDados.txt";
+        lerDados();
+        String path = "ScoreDados.csv";
+
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path)))  {
+            bw.write("sep=,");
+            bw.newLine();
             for (String dado : dados)   {
                 bw.write(dado);
                 bw.newLine();
             }
+            System.out.println("Arquivo escrito!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Não foi possível escrever o arquivo");
         }
     }
 
