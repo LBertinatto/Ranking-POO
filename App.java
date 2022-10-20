@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 // testar a implementação de suas classes.
 
-public class App {
+public class App    {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ScoresImplements si = new ScoresImplements();
+        ScoresSerializacao ss = new ScoresSerializacao();
 
         while (true)    {
             System.out.println("\n----------");
@@ -14,7 +15,8 @@ public class App {
             System.out.println("----------\n");
             System.out.println("1. Registrar Score.");
             System.out.println("2. Lista top10 Scores.");
-            System.out.println("3. Fechar programa.");
+            System.out.println("3. Imprimir arquivo com top10 Scores.");
+            System.out.println("4. Fechar programa.");
             System.out.println("Escolha sua opcao.");
             try {
                 int op = sc.nextInt();
@@ -40,6 +42,11 @@ public class App {
                         System.out.println(si.toString());
                         break;
                     case 3:
+                        ss.lerDados();
+                        ss.escreverDados();
+                        System.out.println("Arquivo escrito!");
+                        break;
+                    case 4:
                         sc.close();
                         System.out.println("Finalizando Programa....");
                         System.exit(0);
