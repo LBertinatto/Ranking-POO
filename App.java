@@ -25,7 +25,7 @@ public class App    {
                         System.out.println("\nInforme seu nome:");
                         sc.nextLine();
                         String nome = sc.nextLine();
-                        System.out.println("Informe sua pontuação");
+                        System.out.println("Informe sua pontuacao");
                         int pont = sc.nextInt();
 
                         //implementar exceção de nome null e score negativo

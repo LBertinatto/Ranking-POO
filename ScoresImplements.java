@@ -10,8 +10,12 @@ public class ScoresImplements implements Scores{
     public ScoresImplements(){
         scores = new ArrayList<>();
     }
-    
-    /* 
+
+    public static ArrayList<GameEntry> getScores() {
+        return scores;
+    }
+
+    /*
      * Adiciona um novo score se ele for grande o suficiente
      * Retorna verdadeiro se foi adicionado,falso caso contrário
      */
@@ -49,11 +53,6 @@ public class ScoresImplements implements Scores{
     @Override
     public int getNumScores() {
         return scores.size();
-    }
-
-    public void imprime(){
-        System.out.println("      Jogador          ,      Score    ");
-        System.out.println("---------------------------------------------");
     }
 
     @Override

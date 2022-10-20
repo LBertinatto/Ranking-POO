@@ -5,18 +5,25 @@ import java.util.ArrayList;
 
 public class ScoresSerializacao {
 
-    ArrayList <GameEntry> dados = new ArrayList<>();
+    ScoresImplements si = new ScoresImplements();
+    GameEntry ge = new GameEntry();
 
+    ArrayList <String> dados = new ArrayList<>();
+    ArrayList <GameEntry> scores = si.getScores();
+    
     public void lerDados()  {
-        dados = ScoresImplements.getScores();
+        for (int i = 0; i < scores.size(); i++) {
+            dados.add(scores.get(i).getName()+","+scores.get(i).getScore());
+
+        }
     }
 
     public void escreverDados() {
         String path = "ScoreDados.txt";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path)))  {
-            for (GameEntry dado : dados)   {
-                bw.write(String.valueOf(dado));
+            for (String dado : dados)   {
+                bw.write(dado);
                 bw.newLine();
             }
         } catch (IOException e) {

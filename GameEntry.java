@@ -11,6 +11,9 @@ public class GameEntry implements Comparable<GameEntry> {
     private String name;
     private Integer score;
 
+    public GameEntry() {
+    }
+
     public GameEntry(String n, int s)   {
         if (n==null || n.isBlank())   {
             IllegalArgumentException e = new IllegalArgumentException("Nome invalido!");
