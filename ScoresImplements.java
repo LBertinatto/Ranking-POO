@@ -51,10 +51,6 @@ public class ScoresImplements implements Scores{
         return scores.size();
     }
 
-    public static ArrayList<GameEntry> getScores() {
-        return scores;
-    }
-    
     public void imprime(){
         System.out.println("      Jogador          ,      Score    ");
         System.out.println("---------------------------------------------");
@@ -65,7 +61,7 @@ public class ScoresImplements implements Scores{
         StringBuilder s = new StringBuilder();
         s.append('[');
         for (int i=0; i<scores.size(); i++) {
-            s.append("(" + scores.get(i).getName() + "" + scores.get(i).getScore() + ")");
+            s.append("(" + scores.get(i).getName() + "," + scores.get(i).getScore() + ")");
             if (i!= scores.size()-1) s.append(", ");
         }
         s.append(']');
